@@ -1,0 +1,55 @@
+]<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			 数组去重
+//          第一种方法
+           
+            var arr=[23,23,11,11,123,78,45,32,24,32,57,37,45];
+            Array.prototype.unique1=function(){
+            	var n=[];//定义一个新的临时数组；
+            	for(var i=0; i<this.length;i++ ){//遍历当前数组
+            		//如果n这个空数组中没有arr中的元素时，就在n数组的尾部添加这个元素，如果有就跳过；
+            		if(n.indexOf(this[i])==-1){
+            			n.push(this[i])
+            		}
+            	}
+            	return n;
+            }
+            
+//          第二种方法
+            Array.prototype.unique2=function(){
+            	var n=[this[0]];
+            	//如果当前的数组的第i项在当前数组中第一次出现的位置不是i；
+            	//那么表示第i项是重复的，过滤掉；否则加入n数组的尾部；
+            	for (var i=1;i<this.length;i++) {
+            		if(this.indexOf(this[i])==i){
+            			n.push(this[i]);
+            		}
+            	}
+            	return n;
+            }
+            
+            
+//          第三种方法
+            Array.prototype.unique3=function(){
+            	var n={};r=[];//n为临时表，r为临时数组；
+//          	遍历当前数组
+                for(var i=0;i<this.length;i++){
+                	if(!n[this[i]]){        //如果临时表中没有当前项；
+                		n[this[i]]=true;   //存入临时表；
+                		r.push(this[i]);    //把当前数组的当前项push到临时数组里；
+                	}
+                }
+                return r;
+            }
+            console.log(arr.unique3());
+            
+            
+		</script>
+	</body>
+</html>

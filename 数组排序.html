@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function swap(arr ,i,j){
+				var temp=arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;
+			}
+			
+			
+			//1.冒泡排序；   冒泡：
+			  function paixu(arr,char1){
+	             var text = 0;
+                 for(var i=0;i<arr.length;i++){
+	                 for(var j=i+1;j<arr.length;j++){
+		                 if(eval(arr[i]+""+char1+""+arr[j])){
+			                 text = arr[j];
+				             arr[j] = arr[i];
+				             arr[i] = text;
+			                }
+		                }
+	                }
+	                return arr;
+                }
+                var a=[12,18,34,2,56,341,3240,23,678,555,980];
+                document.write(paixu(a,">"))
+                document.write("<br>")
+                
+                function paixu1(arr){
+                	for(var i=0;i<arr.length-1;i++){//比较多少轮数；
+                		for(var j=0;j<arr.length-1-i;j++){//每一轮比较的次数；
+                			if(arr[j]>arr[j+1]){
+//              				var temp=arr[j];
+//              				arr[j]=arr[j+1];
+//              				arr[j+1]=temp;
+                                swap(arr,j,j+1)
+                			}
+                		}
+                	}
+                }
+                var a=[12,18,34,2,56,341,3240,23,678,555,980];
+                paixu1(a);
+                document.write(a);
+                
+//              for(var i=arr.length-1;i>0;i--){
+//              	for(var j=0;j<i;j++){
+//              		if(arr)
+//              	}
+//              }
+                document.write("<br>")
+//              2.选择排序
+                function xunze(arr){
+                	for(var i=0;i<arr.length-1;i++){//外层循环比较的轮次；
+                		for(var j=i+1;j<arr.length;j++){//内层循环每轮比较的次数
+                			if(arr[i]>arr[j]){
+                				var temp=arr[i];
+                				arr[i]=arr[j];
+                				arr[j]=temp;
+//                              swap(arr,i,j)
+                			}
+                		}
+                	}
+                }
+                xunze(a);
+                document.write(a);
+                document.write("<br>");
+                
+                
+                //选择排序2；
+                function xunze2(){
+                	for (var i=0;i<arr.length-1;i++) {
+                		var num=arr[i];
+                		var index=i;
+                		for (var j=i+1;j<arr.length;j++) {
+                			if(num>arr[j]){
+                				num=arr[j];
+                				index=j;
+                			}
+                		}
+                		if(index!=i){
+                			swap(arr,i,index);
+                		}
+                	}
+                }
+                xunze2(a);
+                document.write(a);
+		</script>
+	</body>
+</html>
